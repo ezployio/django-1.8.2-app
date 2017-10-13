@@ -66,6 +66,27 @@ DATABASES = {
     }
 }
 
+# CELERY
+# -----------------------
+BROKER_URL = 'redis://localhost:6379'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = None
+
+# Configure channels
+# http://channels.readthedocs.io/en/latest/index.html
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "asgi_redis.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [('redis', 6379)],
+        },
+        "ROUTING": "realtime.routing.channel_routing",
+    },
+}
+
 # Application definition
 # django debugging stuff
 ADMIN_TOOLS = (
