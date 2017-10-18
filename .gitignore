@@ -4,7 +4,8 @@ local.py
 
 # ./manage.py collectstatic folder
 static-collected/*
-
+venv/
+.byebug_history
 
 # Packages
 *.egg
