@@ -155,6 +155,7 @@ STATICFILES_FINDERS = (
     'compressor.finders.CompressorFinder',
 )
 
+TEST_SETTINGS_ENTRY = os.environ.get('TEST_SETTINGS_ENTRY')
 
 SITE_ID = 1
 
